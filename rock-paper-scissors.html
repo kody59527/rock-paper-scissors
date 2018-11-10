@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Page Title</title>
+  <title>Rock, Paper, Scissors</title>
 </head>
 <body>
   <script>
@@ -17,8 +17,8 @@ function computerPlay () {
 	computerSelection = 'SCISSORS';
 	}
 }
-function playerSelection (x) {
-	playerSelection.toUpperCase();
+function playerSelection(string) {
+	playerSelection.toUpperCase(string);
 }
 
 function playRound(playerSelection, computerSelection) {
@@ -37,11 +37,12 @@ function playRound(playerSelection, computerSelection) {
 	} else if (playerSelection == 'PAPER' && computerSelection == 'SCISSORS') {
 		alert('Scissors beats paper, You lose!');
 	} else {
-		alert('Well, something went wrong.')
+		alert('Well, something went wrong.');
 	}
-	alert('Thanks for playing!')
+
+	let result = playerSelection('Rock');
+	return playRound;
 	}
-}
 
 
   </script>
