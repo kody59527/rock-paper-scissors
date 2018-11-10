@@ -4,6 +4,8 @@
   <title>Rock, Paper, Scissors</title>
 </head>
 <body>
+<h1>Use the console to play Rock, Paper, Scissors!</h1>
+</body>
   <script>
 	function computerPlay () {
 		let options = ['ROCK', 'PAPER', 'SCISSORS']
@@ -11,27 +13,37 @@
 		return(computerSelection)
 	}
 
-	function playerSelection(Rock) {
-		playerSelection.toUpperCase('Rock');
+	function caseInsensitive() {
+		playerSelection = playerSelection.toUpperCase()
+		return playerSelection
 	}
 
 	function playRound(playerSelection, computerSelection) {
+		playerSelection = caseInsensitive(playerSelection)
+		let playerScore = 0;
+		let computerScore = 0;
 		if (playerSelection == computerSelection) {
 			alert('Tie game!');
 		} else if (playerSelection == 'ROCK' && computerSelection == 'SCISSORS') {
-			alert('Rock beats scissors, You win!');
+			console.log('Rock beats scissors, You win!')
+			playerScore = 1;
 		} else if (playerSelection == 'ROCK' && computerSelection == 'PAPER') {
-			alert('Rock beats paper, You lose!');
+			console.log('Rock beats paper, You lose!')
+			computerScore = 1;
 		} else if (playerSelection == 'SCISSORS' && computerSelection == 'ROCK') {
-			alert('Rock beats scissors, You lose!');
+			console.log('Rock beats scissors, You lose!')
+			computerScore = 1;
 		} else if (playerSelection == 'SCISSORS' && computerSelection == 'PAPER') {
-			alert('Scissors beats paper, You win!');
+			console.log('Scissors beats paper, You win!')
+			playerScore = 1;
 		} else if (playerSelection == 'PAPER' && computerSelection == 'ROCK') {
-			alert('Paper beats rock, You win!');
+			console.log('Paper beats rock, You win!')
+			playerScore = 1;
 		} else if (playerSelection == 'PAPER' && computerSelection == 'SCISSORS') {
-			alert('Scissors beats paper, You lose!');
+			console.log('Scissors beats paper, You lose!')
+			computerScore = 1;
 		} else {
-			alert('Well, something went wrong.');
+			console.log('Well, something went wrong.');
 		}
 
 		let result = playerSelection('Rock');
@@ -39,6 +51,5 @@
 	}
 
   </script>
-</body>
 </html>
 
