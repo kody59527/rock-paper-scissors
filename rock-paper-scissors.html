@@ -9,7 +9,7 @@
   <script>
 	function computerPlay () {
 		let options = ['ROCK', 'PAPER', 'SCISSORS']
-		let computerSelection = options[Math.floor((Math.random() * options.length)]
+		let computerSelection = options[Math.floor(Math.random() * options.length)]
 		return(computerSelection)
 	}
 
@@ -55,8 +55,24 @@
 			console.log('Round' + (i+1))
 			console.log('playerSelection: ' + playerSelection)
 			console.log('computerSelection: ' + computerSelection)
-			
-}
+			let scores = playRound(playerSelection, computerSelection)
+			computerScore = computerScore + scores[0]
+			playerScore = playerScore + scores[1]
+			console.log('playerScore: ' + playerScore)
+			console.log('computerScore: ' + computerScore)
+		}
+		console.log('computerScore after 5 rounds: ' + computerScore)
+		console.log('playerScore after 5 rounds: ' + playerScore)
+		if (computerScore == playerScore) {
+			console.log('You tied with the computer!')
+		} else if (computerScore > playerScore) {
+			console.log('You lost to the computer!')
+		} else {
+			console.log('You won over 5 rounds!')
+		}
+	}
+ 
+	game()
 
   </script>
 </html>
