@@ -5,45 +5,38 @@
 </head>
 <body>
   <script>
-function computerPlay () {
-	let computerSelection = Math.floor((Math.random() * 3) + 1);
-	if (computerSelection == 1) {
-		computerSelection = 'ROCK';	
-	}
-	else if (computerSelection == 2) {
-		computerSelection = 'PAPER';
-	}
-	else {
-	computerSelection = 'SCISSORS';
-	}
-}
-function playerSelection(string) {
-	playerSelection.toUpperCase(string);
-}
-
-function playRound(playerSelection, computerSelection) {
-	if (playerSelection == computerSelection) {
-		alert('Tie game!');
-	} else if (playerSelection == 'ROCK' && computerSelection == 'SCISSORS') {
-		alert('Rock beats scissors, You win!');
-	} else if (playerSelection == 'ROCK' && computerSelection == 'PAPER') {
-		alert('Rock beats paper, You lose!');
-	} else if (playerSelection == 'SCISSORS' && computerSelection == 'ROCK') {
-		alert('Rock beats scissors, You lose!');
-	} else if (playerSelection == 'SCISSORS' && computerSelection == 'PAPER') {
-		alert('Scissors beats paper, You win!');
-	} else if (playerSelection == 'PAPER' && computerSelection == 'ROCK') {
-		alert('Paper beats rock, You win!');
-	} else if (playerSelection == 'PAPER' && computerSelection == 'SCISSORS') {
-		alert('Scissors beats paper, You lose!');
-	} else {
-		alert('Well, something went wrong.');
+	function computerPlay () {
+		let options = ['ROCK', 'PAPER', 'SCISSORS']
+		let computerSelection = options[Math.floor((Math.random() * options.length)]
+		return(computerSelection)
 	}
 
-	let result = playerSelection('Rock');
-	return playRound;
+	function playerSelection(Rock) {
+		playerSelection.toUpperCase('Rock');
 	}
 
+	function playRound(playerSelection, computerSelection) {
+		if (playerSelection == computerSelection) {
+			alert('Tie game!');
+		} else if (playerSelection == 'ROCK' && computerSelection == 'SCISSORS') {
+			alert('Rock beats scissors, You win!');
+		} else if (playerSelection == 'ROCK' && computerSelection == 'PAPER') {
+			alert('Rock beats paper, You lose!');
+		} else if (playerSelection == 'SCISSORS' && computerSelection == 'ROCK') {
+			alert('Rock beats scissors, You lose!');
+		} else if (playerSelection == 'SCISSORS' && computerSelection == 'PAPER') {
+			alert('Scissors beats paper, You win!');
+		} else if (playerSelection == 'PAPER' && computerSelection == 'ROCK') {
+			alert('Paper beats rock, You win!');
+		} else if (playerSelection == 'PAPER' && computerSelection == 'SCISSORS') {
+			alert('Scissors beats paper, You lose!');
+		} else {
+			alert('Well, something went wrong.');
+		}
+
+		let result = playerSelection('Rock');
+		console.log(result);
+	}
 
   </script>
 </body>
