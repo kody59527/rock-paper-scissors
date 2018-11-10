@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Page Title</title>
+</head>
+<body>
+  <script>
+function computerPlay () {
+	let computerSelection = Math.floor((Math.random() * 3) + 1);
+	if (computerSelection == 1) {
+		computerSelection = 'ROCK';	
+	}
+	else if (computerSelection == 2) {
+		computerSelection = 'PAPER';
+	}
+	else {
+	computerSelection = 'SCISSORS';
+	}
+}
+function playerSelection (x) {
+	playerSelection.toUpperCase();
+}
+
+function playRound(playerSelection, computerSelection) {
+	if (playerSelection == computerSelection) {
+		alert('Tie game!');
+	} else if (playerSelection == 'ROCK' && computerSelection == 'SCISSORS') {
+		alert('Rock beats scissors, You win!');
+	} else if (playerSelection == 'ROCK' && computerSelection == 'PAPER') {
+		alert('Rock beats paper, You lose!');
+	} else if (playerSelection == 'SCISSORS' && computerSelection == 'ROCK') {
+		alert('Rock beats scissors, You lose!');
+	} else if (playerSelection == 'SCISSORS' && computerSelection == 'PAPER') {
+		alert('Scissors beats paper, You win!');
+	} else if (playerSelection == 'PAPER' && computerSelection == 'ROCK') {
+		alert('Paper beats rock, You win!');
+	} else if (playerSelection == 'PAPER' && computerSelection == 'SCISSORS') {
+		alert('Scissors beats paper, You lose!');
+	} else {
+		alert('Well, something went wrong.')
+	}
+	alert('Thanks for playing!')
+	}
+}
+
+
+  </script>
+</body>
+</html>
+
