@@ -4,13 +4,31 @@
   <title>Rock, Paper, Scissors</title>
 </head>
 <body>
-<h1>Rock, Paper, Scissors!</h1>
-<button type='button' class='btn' id='btnRock'>Rock</button>
-<button type='button' class='btn' id='btnPaper'>Paper</button>
-<button type='button' class='btn' id='btnScissors'>Scissors</button>
+    <h1>Rock, Paper, Scissors!</h1>
+
+    <button type='button' class='btn' id='btnRock' onclick="roundCounter()">Rock</button>
+    <button type='button' class='btn' id='btnPaper' onclick="roundCounter()">Paper</button>
+    <button type='button' class='btn' id='btnScissors' onclick="roundCounter()">Scissors</button>
+
+    <p>Round: <a id='roundCount'>0</a></p>
+    <p>Score Counter: Player <a id='playCount'>0</a> Computer 0</p>
 </body>
   <script>
+var roundCount = 0;
+function roundCounter() {
+    roundCount += 1;
+    document.getElementById("roundCount").innerHTML = roundCount;
+}
 
+function playerCounter() {
+    playCount += 1;
+    document.getElementById("playCount").innerHTML = playCount;
+}
+
+function compCounter() {
+    compCount += 1;
+    document.getElementById("compCount").innerHTML = compCount
+}
 document.getElementById("btnRock").addEventListener("click", function(){
     playerSelection = 'ROCK';
     game();
@@ -32,13 +50,12 @@ document.getElementById("btnScissors").addEventListener("click", function(){
 	}
 	//Main logic of a basic Rock, Paper, Scissors game
 	function playRound(playerSelection, computerSelection) {
-		let playerScore = 0;
-		let computerScore = 0;
+        let computerScore = 0;
 		if (playerSelection == computerSelection) {
             alert('Tie game!');
 		} else if (playerSelection == 'ROCK' && computerSelection == 'SCISSORS') {
 			alert('Rock beats scissors, You win!');
-            playerScore = 1;
+            playerCounter();
 		} else if (playerSelection == 'ROCK' && computerSelection == 'PAPER') {
 			alert('Rock beats paper, You lose!');
             computerScore = 1;
@@ -47,37 +64,33 @@ document.getElementById("btnScissors").addEventListener("click", function(){
             computerScore = 1;
 		} else if (playerSelection == 'SCISSORS' && computerSelection == 'PAPER') {
 			alert('Scissors beats paper, You win!');
-            playerScore = 1;
+            playerCounter();
 		} else if (playerSelection == 'PAPER' && computerSelection == 'ROCK') {
 			alert('Paper beats rock, You win!');
-            playerScore = 1;
+            playerCounter();
 		} else if (playerSelection == 'PAPER' && computerSelection == 'SCISSORS') {
 			alert('Scissors beats paper, You lose!');
             computerScore = 1;
 		} 
-		return [computerScore, playerScore];
+		return [computerScore, playCount];
 	}
 	//Game is run, scores are tallied until 5 games, returns a winner after 5 games by comparing wins.
-    let computerScore = 0;
-    let playerScore = 0;
-    let i = 0;
+    var computerScore = 0;
     function game() {
-        i++;
 		let computerSelection = computerPlay();
-		alert('Round' + ' ' + i);
 		alert('playerSelection: ' + playerSelection);
 		alert('computerSelection: ' + computerSelection);
 		let scores = playRound(playerSelection, computerSelection);
 		computerScore = computerScore + scores[0];
-		playerScore = playerScore + scores[1];
-		alert('playerScore: ' + playerScore);
-        alert('computerScore: ' + computerScore);
-           if (i == 5) {    
-		    alert('computerScore after 5 rounds: ' + computerScore);
-		    alert('playerScore after 5 rounds: ' + playerScore);
-		    if (computerScore == playerScore) {
+		playCount = playCount + scores[1];
+		alert('Player\'\s score: ' + playCount);
+        alert('Computer\'\s score: ' + computerScore);
+           if (roundCount == 5) {    
+		    alert('Computer score after 5 rounds: ' + computerScore);
+		    alert('Player score after 5 rounds: ' + playCount);
+		    if (computerScore == playCount) {
 			    alert('You tied with the computer!');
-		    } else if (computerScore > playerScore) {
+		    } else if (computerScore > playCount) {
 			    alert('You lost to the computer!');
 		    } else {
 			    alert('You won over 5 rounds!');
