@@ -64,23 +64,23 @@ document.getElementById("btnScissors").addEventListener("click", function(){
     function game() {
         i++;
 		let computerSelection = computerPlay();
-		console.log('Round' + ' ' + i);
-		console.log('playerSelection: ' + playerSelection);
-		console.log('computerSelection: ' + computerSelection);
+		alert('Round' + ' ' + i);
+		alert('playerSelection: ' + playerSelection);
+		alert('computerSelection: ' + computerSelection);
 		let scores = playRound(playerSelection, computerSelection);
 		computerScore = computerScore + scores[0];
 		playerScore = playerScore + scores[1];
-		console.log('playerScore: ' + playerScore);
-        console.log('computerScore: ' + computerScore);
+		alert('playerScore: ' + playerScore);
+        alert('computerScore: ' + computerScore);
            if (i == 5) {    
-		    console.log('computerScore after 5 rounds: ' + computerScore);
-		    console.log('playerScore after 5 rounds: ' + playerScore);
+		    alert('computerScore after 5 rounds: ' + computerScore);
+		    alert('playerScore after 5 rounds: ' + playerScore);
 		    if (computerScore == playerScore) {
-			    console.log('You tied with the computer!');
+			    alert('You tied with the computer!');
 		    } else if (computerScore > playerScore) {
-			    console.log('You lost to the computer!');
+			    alert('You lost to the computer!');
 		    } else {
-			    console.log('You won over 5 rounds!');
+			    alert('You won over 5 rounds!');
         }
         }
 	}
